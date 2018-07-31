@@ -115,15 +115,15 @@ def Maxpooling_2D(x):
 
 
 def convolutional_neural_network(x):
-    weights = {'Weights_Conv1': tf.Variable(tf.random_normal([5, 5, 1, 32])),
-               'Weights_Conv2': tf.Variable(tf.random_normal([5, 5, 32, 64])),
-               'Weights_FC': tf.Variable(tf.random_normal([56 * 56 * 64, 1024])),
-               'out': tf.Variable(tf.random_normal([1024, n_classes]))}
+    weights = {'Weights_Conv1': tf.Variable(tf.random_normal([5, 5, 1, 32], stddev=0.001)),
+               'Weights_Conv2': tf.Variable(tf.random_normal([5, 5, 32, 64], stddev=0.001)),
+               'Weights_FC': tf.Variable(tf.random_normal([56 * 56 * 64, 1024], stddev=0.001)),
+               'out': tf.Variable(tf.random_normal([1024, n_classes], stddev=0.001))}
 
-    biases = {'Biase_Conv1': tf.Variable(tf.random_normal([32])),
-              'Biase_Conv2': tf.Variable(tf.random_normal([64])),
-              'Biase_FC': tf.Variable(tf.random_normal([1024])),
-              'out': tf.Variable(tf.random_normal([n_classes]))}
+    biases = {'Biase_Conv1': tf.Variable(tf.random_normal([32], stddev=0.001)),
+              'Biase_Conv2': tf.Variable(tf.random_normal([64], stddev=0.001)),
+              'Biase_FC': tf.Variable(tf.random_normal([1024], stddev=0.001)),
+              'out': tf.Variable(tf.random_normal([n_classes], stddev=0.001))}
 
     x = tf.reshape(x, shape=[-1, hight_img, width_img, 1])
 
